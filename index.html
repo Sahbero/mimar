@@ -21,6 +21,1419 @@
         const { Home, FolderOpen, Calculator, Plus, Search, ChevronLeft, Edit2, Trash2, X, Palette, StickyNote, Link: LinkIcon, Ruler, Users, Share2, Package, Image: ImageIcon, Calendar, Clock, Bell, BellRing, CheckCircle, Archive, FileText, Download, CheckCircle2 } = lucide;
 
         // --- KODUNUZ BURAYA GELECEK ---
+
+// Çoklu dil desteği için dil sözlüğü
+const translations = {
+  tr: {
+    appTitle: "ArchiMate",
+    appSubtitle: "Mimar Asistanı",
+    overview: "Özet",
+    projects: "Projeler",
+    tools: "Araçlar",
+    activeProject: "Aktif Projeler",
+    totalNotes: "Toplam Not",
+    recentProjects: "Devam Eden Projeler",
+    completedProjects: "Bitmiş Projeler",
+    noProjects: "Henüz proje eklenmemiş.",
+    noCompletedProjects: "Henüz tamamlanmış proje bulunmuyor.",
+    projectOrClient: "Proje veya müşteri ara...",
+    createNewProject: "Yeni Proje Oluştur",
+    projectName: "Proje Adı *",
+    clientName: "Müşteri Adı",
+    saveProject: "Projeyi Kaydet",
+    notes: "Notlar",
+    calendar: "Takvim",
+    materials: "Malzemeler",
+    team: "Ekip",
+    writeNote: "Bu proje için yeni bir not yazın...",
+    addNote: "Kaydet",
+    updateNote: "Güncelle",
+    cancel: "İptal",
+    noNotes: "Henüz not eklenmemiş.",
+    workCalendar: "İş Takvimi",
+    fieldAndOffice: "Saha ve ofis görevlerini planla",
+    taskTitle: "İş Başlığı",
+    date: "Tarih",
+    start: "Başlangıç",
+    end: "Bitiş",
+    reminderActive: "Hatırlatıcı Açık",
+    addReminder: "Hatırlatıcı Ekle",
+    addToCalendar: "Takvime Ekle",
+    updateTask: "Görevi Güncelle",
+    noTasks: "Planlanmış bir iş bulunmuyor.",
+    selectedMaterials: "Seçili Malzemeler",
+    cancelBtn: "İptal",
+    addNew: "Yeni Ekle",
+    materialName: "Malzeme Adı/Kodu",
+    brand: "Marka",
+    area: "Kullanım Alanı",
+    addToBoard: "Panoya Ekle",
+    updateMaterial: "Malzemeyi Güncelle",
+    noMaterials: "Panoda malzeme bulunmuyor.",
+    shareProject: "Projeyi Paylaş",
+    shareDesc: "Ekip arkadaşlarınızı veya müşterinizi davet ederek projeyi birlikte yönetebilirsiniz.",
+    sendInvite: "Davet Gönder",
+    emailPlaceholder: "E-posta adresi...",
+    inviteBtn: "Davet Et",
+    accessList: "Erişimi Olanlar",
+    you: "Sen",
+    projectManager: "Yönetici",
+    roleEditor: "Editör",
+    roleViewer: "İzleyici",
+    remove: "Kaldır",
+    practicalTools: "Pratik Araçlar",
+    stairCalc: "Merdiven Hesaplayıcı",
+    floorHeight: "Kat Yüksekliği (cm)",
+    riserCount: "Rıht Sayısı",
+    stepCount: "Basamak S.",
+    riserHeight: "Rıht Yüks. (cm)",
+    pkgCalculator: "Malzeme Paket İhtiyacı",
+    netArea: "Uygulanacak Net Alan (m²)",
+    wasteRatio: "Fire Oranı (%)",
+    customWaste: "Özel Fire % :",
+    pkgContent: "1 Paketin İçeriği (m²)",
+    grossRequired: "Brüt İhtiyaç (Fireli)",
+    totalToBuy: "Toplam Alınması Gereken",
+    packages: "PAKET",
+    quickArea: "Hızlı Alan Metrajı (m²)",
+    width: "En (metre)",
+    length: "Boy (metre)",
+    totalArea: "Toplam Alan",
+    profileTitle: "Profil Bilgileri",
+    fullName: "Ad Soyad",
+    profession: "Meslek",
+    language: "Dil",
+    uploadPhoto: "Profil Fotoğrafı Yükle",
+    maxSizeWarning: "Fotoğraf boyutu 2MB'den küçük olmalıdır.",
+    saveProfile: "Profili Kaydet",
+    quotaWarning: "Hafıza doldu! Lütfen daha küçük dosyalar seçin.",
+    finishProject: "Projeyi Bitir",
+    makeActive: "Aktife Al",
+    completed: "Tamamlandı",
+    attachFile: "Dosya",
+    fileLimit: "Dosya çok büyük! Lütfen 500KB altı seçin.",
+    readOnlyMsg: "Bu proje tamamlandığı için salt okunur (arşiv) modundadır. Değişiklik yapılamaz."
+  },
+  en: {
+    appTitle: "ArchiMate",
+    appSubtitle: "Architect Assistant",
+    overview: "Overview",
+    projects: "Projects",
+    tools: "Tools",
+    activeProject: "Active Projects",
+    totalNotes: "Total Notes",
+    recentProjects: "In Progress",
+    completedProjects: "Completed Projects",
+    noProjects: "No projects added yet.",
+    noCompletedProjects: "No completed projects yet.",
+    projectOrClient: "Search project or client...",
+    createNewProject: "Create New Project",
+    projectName: "Project Name *",
+    clientName: "Client Name",
+    saveProject: "Save Project",
+    notes: "Notes",
+    calendar: "Calendar",
+    materials: "Materials",
+    team: "Team",
+    writeNote: "Write a new note for this project...",
+    addNote: "Save",
+    updateNote: "Update",
+    cancel: "Cancel",
+    noNotes: "No notes added yet.",
+    workCalendar: "Work Calendar",
+    fieldAndOffice: "Plan field and office tasks",
+    taskTitle: "Task Title",
+    date: "Date",
+    start: "Start",
+    end: "End",
+    reminderActive: "Reminder Active",
+    addReminder: "Add Reminder",
+    addToCalendar: "Add to Calendar",
+    updateTask: "Update Task",
+    noTasks: "No planned tasks found.",
+    selectedMaterials: "Selected Materials",
+    cancelBtn: "Cancel",
+    addNew: "Add New",
+    materialName: "Material Name/Code",
+    brand: "Brand",
+    area: "Area of Use",
+    addToBoard: "Add to Board",
+    updateMaterial: "Update Material",
+    noMaterials: "No materials on the board.",
+    shareProject: "Share Project",
+    shareDesc: "Invite team members or clients to manage the project together.",
+    sendInvite: "Send Invite",
+    emailPlaceholder: "Email address...",
+    inviteBtn: "Invite",
+    accessList: "People with Access",
+    you: "You",
+    projectManager: "Manager",
+    roleEditor: "Editor",
+    roleViewer: "Viewer",
+    remove: "Remove",
+    practicalTools: "Practical Tools",
+    stairCalc: "Staircase Calculator",
+    floorHeight: "Floor Height (cm)",
+    riserCount: "Riser Count",
+    stepCount: "Step Count",
+    riserHeight: "Riser Height (cm)",
+    pkgCalculator: "Material Package Calculator",
+    netArea: "Net Applied Area (m²)",
+    wasteRatio: "Waste Ratio (%)",
+    customWaste: "Custom Waste % :",
+    pkgContent: "1 Package Content (m²)",
+    grossRequired: "Gross Required (with Waste)",
+    totalToBuy: "Total Package Required",
+    packages: "PACKAGES",
+    quickArea: "Quick Area Survey (m²)",
+    width: "Width (meters)",
+    length: "Length (meters)",
+    totalArea: "Total Area",
+    profileTitle: "Profile Information",
+    fullName: "Full Name",
+    profession: "Profession",
+    language: "Language",
+    uploadPhoto: "Upload Profile Photo",
+    maxSizeWarning: "Photo size must be less than 2MB.",
+    saveProfile: "Save Profile",
+    quotaWarning: "Storage full! Please select smaller files.",
+    finishProject: "Finish Project",
+    makeActive: "Make Active",
+    completed: "Completed",
+    attachFile: "File",
+    fileLimit: "File is too large! Please select under 500KB.",
+    readOnlyMsg: "This project is completed and is in read-only (archive) mode."
+  }
+};
+
+function ProfessionVector({ profession, className = "w-12 h-12" }) {
+  switch (profession) {
+    case 'Mimar':
+    case 'Architect':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
+          <path d="M14 3v5h5M16 13H8M16 17H8M10 9H8" />
+          <path d="m6 21 6-6 6 6" />
+        </svg>
+      );
+    case 'İç Mimar':
+    case 'Interior Designer':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 21h18M6 21V10a6 6 0 0 1 12 0v11M12 4v4M9 8h6" />
+          <rect x="9" y="14" width="6" height="4" rx="1" />
+        </svg>
+      );
+    case 'İnşaat Mühendisi':
+    case 'Civil Engineer':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
+        </svg>
+      );
+    case 'Elektrik Mühendisi':
+    case 'Electrical Engineer':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M13 2L3 14h9l-1 8L21 10h-9l1-8z" />
+        </svg>
+      );
+    case 'Peyzaj Mimarı':
+    case 'Landscape Architect':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+          <path d="M12 6a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6z" />
+          <path d="M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+        </svg>
+      );
+    case 'Usta':
+    case 'Builder':
+    case 'Craftsman':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+        </svg>
+      );
+    case 'Yönetici':
+    case 'Manager':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+      );
+    default:
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      );
+  }
+}
+
+export default function App() {
+  const [activeTab, setActiveTab] = useState('dashboard');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [toast, setToast] = useState(null); // Bildirim Sistemi
+
+  const showToast = (message) => {
+    setToast(message);
+    setTimeout(() => setToast(null), 3000);
+  };
+
+  // Profil Bilgileri State'i (v3 ile yenilendi)
+  const [profile, setProfile] = useState(() => {
+    const saved = localStorage.getItem('archiMate_profile_v3');
+    if (saved) return JSON.parse(saved);
+    return {
+      fullName: "Ahmet Mimaroğlu",
+      profession: "Mimar",
+      language: "tr",
+      avatar: null
+    };
+  });
+
+  // Veritabanı State'i (v3 - Yeni Roller, Dosya ve Arşiv Yapısı)
+  const [projects, setProjects] = useState(() => {
+    const saved = localStorage.getItem('archiMate_projects_v3');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        return [];
+      }
+    }
+    // Varsayılan Örnek Proje verisi
+    return [
+      {
+        id: 1,
+        title: "Kadıköy Merkez Ofis",
+        client: "Ahmet Yılmaz",
+        status: "Devam Ediyor",
+        date: new Date().toISOString().split('T')[0],
+        notes: [
+          { 
+            id: 1, 
+            text: "Giriş lobisi için ahşap panel bakılacak. Aşağıdaki linkteki modeli beğendiler.", 
+            date: "21.06.2026", 
+            image: null,
+            file: null,
+            link: "https://tr.pinterest.com" 
+          }
+        ],
+        materials: [
+          { id: 1, type: "Zemin", name: "60x120 Mat Seramik", brand: "Vitra", area: "Lobi" }
+        ],
+        tasks: [
+          { 
+            id: 1, 
+            title: "Belediye ruhsat başvurusu", 
+            date: new Date().toISOString().split('T')[0], 
+            startTime: "10:00", 
+            endTime: "11:30", 
+            reminder: false, 
+            isDone: false 
+          }
+        ],
+        collaborators: [
+          { id: 1, email: "mehmet.mimar@ofis.com", role: "Editör" }
+        ]
+      },
+      {
+        id: 2,
+        title: "Beşiktaş Villa Restorasyon",
+        client: "Ayşe Hanım",
+        status: "Tamamlandı",
+        date: "2025-05-10",
+        notes: [],
+        materials: [],
+        tasks: [],
+        collaborators: []
+      }
+    ];
+  });
+
+  // LocalStorage senkronizasyonu
+  useEffect(() => {
+    try {
+      localStorage.setItem('archiMate_projects_v3', JSON.stringify(projects));
+    } catch (e) {
+      if (e.name === 'QuotaExceededError') {
+        showToast(t('quotaWarning'));
+      }
+    }
+  }, [projects]);
+
+  useEffect(() => {
+    localStorage.setItem('archiMate_profile_v3', JSON.stringify(profile));
+  }, [profile]);
+
+  // Çeviri Yardımcı Fonksiyonu
+  const t = (key) => {
+    const lang = profile.language || 'tr';
+    return translations[lang]?.[key] || key;
+  };
+
+  // Hatırlatıcı kontrol mekanizması
+  useEffect(() => {
+    if (!('Notification' in window)) return;
+    const interval = setInterval(() => {
+      const now = new Date();
+      const currentDateStr = now.toISOString().split('T')[0];
+      const currentTimeStr = now.toTimeString().substring(0, 5);
+
+      projects.forEach(project => {
+        if (project.status === 'Tamamlandı' || project.status === 'Completed') return; // Bitmiş projelerde alarm çalma
+        project.tasks?.forEach(task => {
+          if (task.reminder && !task.isDone && task.date === currentDateStr && task.startTime === currentTimeStr) {
+            if (Notification.permission === 'granted') {
+              new Notification(`ArchiMate`, {
+                body: `${project.title} - ${task.title} (${task.startTime} - ${task.endTime})`,
+                icon: '/favicon.ico'
+              });
+            }
+          }
+        });
+      });
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [projects]);
+
+  const renderContent = () => {
+    if (selectedProject) {
+      return (
+        <ProjectDetail 
+          project={projects.find(p => p.id === selectedProject)}
+          onBack={() => setSelectedProject(null)}
+          updateProject={(updatedProject) => {
+            setProjects(projects.map(p => p.id === updatedProject.id ? updatedProject : p));
+          }}
+          t={t}
+          profile={profile}
+          showToast={showToast}
+        />
+      );
+    }
+
+    switch (activeTab) {
+      case 'dashboard':
+        return <Dashboard projects={projects} onOpenProject={setSelectedProject} t={t} />;
+      case 'projects':
+        return <ProjectList projects={projects} setProjects={setProjects} onOpenProject={setSelectedProject} t={t} />;
+      case 'tools':
+        return <Tools t={t} />;
+      default:
+        return <Dashboard projects={projects} onOpenProject={setSelectedProject} t={t} />;
+    }
+  };
+
+  return (
+    <div className="flex flex-col h-screen bg-slate-50 text-slate-800 font-sans sm:max-w-md sm:mx-auto sm:border-x sm:border-slate-200 sm:shadow-2xl overflow-hidden relative">
+      
+      {/* Genel Toast Bildirim Sistemi */}
+      {toast && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium shadow-2xl animate-in slide-in-from-top-10">
+          {toast}
+        </div>
+      )}
+
+      {/* Üst Header Modülü */}
+      {!selectedProject && (
+        <header className="bg-white px-6 py-4 border-b border-slate-200 shadow-sm flex items-center justify-between sticky top-0 z-10">
+          <div>
+            <h1 className="text-xl font-bold text-slate-900 tracking-tight">{t('appTitle')}</h1>
+            <p className="text-xs text-slate-500">{t('appSubtitle')}</p>
+          </div>
+          
+          <button 
+            onClick={() => setIsProfileOpen(true)}
+            className="w-10 h-10 rounded-full border border-indigo-200 bg-indigo-50 flex items-center justify-center overflow-hidden shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-transform hover:scale-105"
+          >
+            {profile.avatar ? (
+              <img src={profile.avatar} alt="Profile" className="w-full h-full object-cover" />
+            ) : (
+              <div className="text-indigo-600">
+                <ProfessionVector profession={profile.profession} className="w-6 h-6" />
+              </div>
+            )}
+          </button>
+        </header>
+      )}
+
+      {/* Ana İçerik */}
+      <main className="flex-1 overflow-y-auto pb-24 scroll-smooth">
+        {renderContent()}
+      </main>
+
+      {/* Alt Navigasyon Barı */}
+      {!selectedProject && (
+        <nav className="absolute bottom-0 w-full bg-white border-t border-slate-200 px-6 py-3 flex justify-between items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-20">
+          <NavItem icon={<Home size={24} />} label={t('overview')} isActive={activeTab === 'dashboard'} onClick={() => setActiveTab('dashboard')} />
+          <NavItem icon={<FolderOpen size={24} />} label={t('projects')} isActive={activeTab === 'projects'} onClick={() => setActiveTab('projects')} />
+          <NavItem icon={<Calculator size={24} />} label={t('tools')} isActive={activeTab === 'tools'} onClick={() => setActiveTab('tools')} />
+        </nav>
+      )}
+
+      {/* Profil Düzenleme Modalı */}
+      {isProfileOpen && (
+        <ProfileModal 
+          profile={profile} 
+          setProfile={setProfile} 
+          onClose={() => setIsProfileOpen(false)} 
+          t={t}
+          showToast={showToast}
+        />
+      )}
+    </div>
+  );
+}
+
+function NavItem({ icon, label, isActive, onClick }) {
+  return (
+    <button 
+      onClick={onClick} 
+      className={`flex flex-col items-center justify-center w-16 transition-colors ${isActive ? 'text-indigo-600' : 'text-slate-400 hover:text-slate-600'}`}
+    >
+      <div className={`mb-1 ${isActive ? 'scale-110 transition-transform' : ''}`}>{icon}</div>
+      <span className="text-[10px] font-medium">{label}</span>
+    </button>
+  );
+}
+
+function ProfileModal({ profile, setProfile, onClose, t, showToast }) {
+  const [nameInput, setNameInput] = useState(profile.fullName);
+  const [profInput, setProfInput] = useState(profile.profession);
+  const [langInput, setLangInput] = useState(profile.language);
+  const [avatarPreview, setAvatarPreview] = useState(profile.avatar);
+  const fileRef = useRef(null);
+
+  const handleAvatarChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 2 * 1024 * 1024) {
+        showToast(t('maxSizeWarning'));
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatarPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleSave = () => {
+    setProfile({
+      fullName: nameInput,
+      profession: profInput,
+      language: langInput,
+      avatar: avatarPreview
+    });
+    onClose();
+  };
+
+  return (
+    <div className="absolute inset-0 bg-slate-900/60 z-50 flex items-center justify-center p-4 animate-in fade-in">
+      <div className="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl relative animate-in zoom-in-95">
+        <button onClick={onClose} className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full bg-slate-100">
+          <X size={20} />
+        </button>
+
+        <h3 className="text-xl font-bold text-slate-800 mb-6">{t('profileTitle')}</h3>
+
+        <div className="flex flex-col items-center mb-6">
+          <div className="w-24 h-24 rounded-full border-4 border-indigo-100 bg-indigo-50 flex items-center justify-center overflow-hidden shadow-md relative mb-3">
+            {avatarPreview ? (
+              <img src={avatarPreview} alt="Avatar" className="w-full h-full object-cover" />
+            ) : (
+              <div className="text-indigo-600">
+                <ProfessionVector profession={profInput} className="w-12 h-12" />
+              </div>
+            )}
+          </div>
+          <input type="file" accept="image/*" ref={fileRef} onChange={handleAvatarChange} className="hidden" />
+          <button 
+            onClick={() => fileRef.current.click()} 
+            className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full hover:bg-indigo-100 transition-colors"
+          >
+            {t('uploadPhoto')}
+          </button>
+        </div>
+
+        <div className="space-y-4">
+          <div>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{t('fullName')}</label>
+            <input type="text" value={nameInput} onChange={e => setNameInput(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500 text-sm" />
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{t('profession')}</label>
+            <select value={profInput} onChange={e => setProfInput(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+              <option value="Mimar">Mimar / Architect</option>
+              <option value="İç Mimar">İç Mimar / Interior Designer</option>
+              <option value="İnşaat Mühendisi">İnşaat Mühendisi / Civil Engineer</option>
+              <option value="Elektrik Mühendisi">Elektrik Mühendisi / Electrical Engineer</option>
+              <option value="Peyzaj Mimarı">Peyzaj Mimarı / Landscape Architect</option>
+              <option value="Usta">Usta / Builder-Craftsman</option>
+              <option value="Yönetici">Yönetici / Manager</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{t('language')}</label>
+            <select value={langInput} onChange={e => setLangInput(e.target.value)} className="w-full p-2.5 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+              <option value="tr">Türkçe</option>
+              <option value="en">English</option>
+            </select>
+          </div>
+
+          <button onClick={handleSave} className="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl mt-4 hover:bg-indigo-700 transition-colors shadow-md">
+            {t('saveProfile')}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Dashboard({ projects, onOpenProject, t }) {
+  const activeProjects = projects.filter(p => p.status === 'Devam Ediyor' || p.status === 'In Progress');
+  const completedProjects = projects.filter(p => p.status === 'Tamamlandı' || p.status === 'Completed');
+  const totalNotes = projects.reduce((acc, p) => acc + (p.notes?.length || 0), 0);
+
+  return (
+    <div className="p-6 space-y-6 animate-in fade-in duration-300">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 p-4 rounded-2xl text-white shadow-md">
+          <div className="flex items-center space-x-2 opacity-80 mb-2">
+            <FolderOpen size={18} />
+            <span className="text-sm font-medium">{t('activeProject')}</span>
+          </div>
+          <p className="text-3xl font-bold">{activeProjects.length}</p>
+        </div>
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl shadow-sm">
+          <div className="flex items-center space-x-2 text-slate-500 mb-2">
+            <StickyNote size={18} />
+            <span className="text-sm font-medium">{t('totalNotes')}</span>
+          </div>
+          <p className="text-3xl font-bold text-slate-800">{totalNotes}</p>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="text-lg font-bold text-slate-800 mb-4">{t('recentProjects')}</h2>
+        <div className="space-y-3">
+          {activeProjects.slice(0, 3).map(project => (
+            <div key={project.id} onClick={() => onOpenProject(project.id)} className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex items-center justify-between">
+              <div>
+                <h3 className="font-semibold text-slate-800">{project.title}</h3>
+                <p className="text-sm text-slate-500">{project.client}</p>
+              </div>
+              <span className="text-xs px-2 py-1 rounded-full font-medium bg-green-100 text-green-700">
+                {project.status}
+              </span>
+            </div>
+          ))}
+          {activeProjects.length === 0 && (
+            <p className="text-center text-slate-400 py-4 text-sm">{t('noProjects')}</p>
+          )}
+        </div>
+      </div>
+
+      <div>
+        <h2 className="text-lg font-bold text-slate-800 mb-4">{t('completedProjects')}</h2>
+        <div className="space-y-3">
+          {completedProjects.slice(0, 5).map(project => (
+            <div key={project.id} onClick={() => onOpenProject(project.id)} className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm cursor-pointer flex items-center justify-between opacity-80 hover:opacity-100 transition-opacity">
+              <div>
+                <h3 className="font-semibold text-slate-700 line-through decoration-slate-300">{project.title}</h3>
+                <p className="text-sm text-slate-500">{project.client}</p>
+              </div>
+              <span className="text-xs px-2 py-1 rounded-full font-medium bg-slate-200 text-slate-600 flex items-center">
+                <Archive size={12} className="mr-1"/> {t('completed')}
+              </span>
+            </div>
+          ))}
+          {completedProjects.length === 0 && (
+            <p className="text-center text-slate-400 py-4 text-sm">{t('noCompletedProjects')}</p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectList({ projects, setProjects, onOpenProject, t }) {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newProject, setNewProject] = useState({ title: '', client: '' });
+
+  const filteredProjects = projects.filter(p => 
+    p.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    p.client.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleAddProject = (e) => {
+    e.preventDefault();
+    if (!newProject.title) return;
+    
+    const project = {
+      id: Date.now(),
+      title: newProject.title,
+      client: newProject.client,
+      status: "Devam Ediyor",
+      date: new Date().toISOString().split('T')[0],
+      notes: [],
+      materials: [],
+      tasks: [],
+      collaborators: []
+    };
+    
+    setProjects([project, ...projects]);
+    setNewProject({ title: '', client: '' });
+    setShowAddModal(false);
+  };
+
+  return (
+    <div className="p-6 h-full flex flex-col relative">
+      <div className="relative mb-6">
+        <Search className="absolute left-3 top-3 text-slate-400" size={20} />
+        <input 
+          type="text" 
+          placeholder={t('projectOrClient')}
+          className="w-full bg-white border border-slate-200 rounded-xl py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+
+      <div className="space-y-3 flex-1 overflow-y-auto pb-6">
+        {filteredProjects.map(project => {
+          const isCompleted = project.status === 'Tamamlandı' || project.status === 'Completed';
+          return (
+            <div 
+              key={project.id} 
+              onClick={() => onOpenProject(project.id)}
+              className={`bg-white p-4 rounded-xl border border-slate-200 shadow-sm cursor-pointer hover:border-indigo-300 transition-colors ${isCompleted ? 'opacity-70 bg-slate-50' : ''}`}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <h3 className={`font-bold ${isCompleted ? 'text-slate-600' : 'text-slate-800'}`}>{project.title}</h3>
+                <span className={`text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-bold ${isCompleted ? 'bg-slate-200 text-slate-600' : 'bg-green-100 text-green-700'}`}>
+                  {isCompleted ? t('completed') : project.status}
+                </span>
+              </div>
+              <div className="flex items-center text-sm text-slate-500 space-x-4">
+                <span className="flex items-center"><FolderOpen size={14} className="mr-1"/> {project.client || 'Müşteri Yok'}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* FAB (Ekleme Butonu) daha güvenli bir lokasyona (bottom-8) alındı */}
+      <button 
+        onClick={() => setShowAddModal(true)}
+        className="absolute bottom-8 right-6 w-14 h-14 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-colors z-30"
+      >
+        <Plus size={28} />
+      </button>
+
+      {showAddModal && (
+        <div className="absolute inset-0 bg-slate-900/40 z-40 flex items-end sm:items-center justify-center animate-in fade-in">
+          <div className="bg-white w-full sm:w-11/12 rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl animate-in slide-in-from-bottom-10">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-bold">{t('createNewProject')}</h3>
+              <button onClick={() => setShowAddModal(false)} className="p-2 bg-slate-100 rounded-full text-slate-500"><X size={20}/></button>
+            </div>
+            <form onSubmit={handleAddProject}>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">{t('projectName')}</label>
+                  <input required type="text" value={newProject.title} onChange={e => setNewProject({...newProject, title: e.target.value})} className="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Örn: Bebek Köşkü Restorasyon" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">{t('clientName')}</label>
+                  <input type="text" value={newProject.client} onChange={e => setNewProject({...newProject, client: e.target.value})} className="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Örn: Ayşe Hanım" />
+                </div>
+                <button type="submit" className="w-full bg-indigo-600 text-white font-bold rounded-xl p-4 mt-4 hover:bg-indigo-700">{t('saveProject')}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ProjectDetail({ project, onBack, updateProject, t, profile, showToast }) {
+  const [activeTab, setActiveTab] = useState('notes');
+  const isReadOnly = project.status === 'Tamamlandı' || project.status === 'Completed';
+
+  const toggleProjectStatus = () => {
+    const newStatus = isReadOnly ? 'Devam Ediyor' : 'Tamamlandı';
+    updateProject({...project, status: newStatus});
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 flex flex-col animate-in slide-in-from-right-8 duration-300">
+      
+      <header className="bg-indigo-600 text-white px-4 py-4 pt-6 sticky top-0 z-20 shadow-md">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center space-x-3 flex-1 overflow-hidden pr-2">
+            <button onClick={onBack} className="p-2 hover:bg-white/20 rounded-full transition-colors flex-shrink-0">
+              <ChevronLeft size={24} />
+            </button>
+            <div className="overflow-hidden">
+              <h1 className="text-lg font-bold truncate">{project.title}</h1>
+              <p className="text-indigo-200 text-sm truncate">{project.client}</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center space-x-3 flex-shrink-0">
+            {/* Projeyi Bitir / Aktife Al Butonu */}
+            <button 
+              onClick={toggleProjectStatus}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors shadow-sm flex items-center ${isReadOnly ? 'bg-amber-400 text-amber-900 hover:bg-amber-300' : 'bg-green-500 text-white hover:bg-green-400'}`}
+            >
+              {isReadOnly ? t('makeActive') : <><CheckCircle2 size={14} className="mr-1"/> {t('finishProject')}</>}
+            </button>
+
+            {/* Header Profil Avatarı */}
+            <div className="w-9 h-9 rounded-full border border-white/20 overflow-hidden bg-white/10 flex items-center justify-center">
+              {profile.avatar ? (
+                <img src={profile.avatar} alt="Profile" className="w-full h-full object-cover" />
+              ) : (
+                <div className="text-white">
+                  <ProfessionVector profession={profile.profession} className="w-5 h-5" />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-4 w-full bg-indigo-700/50 p-1 rounded-xl gap-1">
+          <DetailTab label={t('notes')} icon={<StickyNote size={16}/>} isActive={activeTab === 'notes'} onClick={() => setActiveTab('notes')} />
+          <DetailTab label={t('calendar')} icon={<Calendar size={16}/>} isActive={activeTab === 'tasks'} onClick={() => setActiveTab('tasks')} />
+          <DetailTab label={t('materials')} icon={<Palette size={16}/>} isActive={activeTab === 'materials'} onClick={() => setActiveTab('materials')} />
+          <DetailTab label={t('team')} icon={<Users size={16}/>} isActive={activeTab === 'team'} onClick={() => setActiveTab('team')} />
+        </div>
+      </header>
+
+      <div className="flex-1 p-4">
+        {/* Arşiv Modu Uyarısı */}
+        {isReadOnly && (
+          <div className="bg-amber-50 text-amber-800 p-3 rounded-xl mb-4 text-xs font-medium flex items-center border border-amber-200 shadow-sm animate-in fade-in">
+            <Archive size={16} className="mr-2 flex-shrink-0" />
+            {t('readOnlyMsg')}
+          </div>
+        )}
+
+        {activeTab === 'notes' && <ProjectNotes project={project} updateProject={updateProject} t={t} isReadOnly={isReadOnly} showToast={showToast} />}
+        {activeTab === 'tasks' && <ProjectCalendar project={project} updateProject={updateProject} t={t} isReadOnly={isReadOnly} />}
+        {activeTab === 'materials' && <ProjectMaterials project={project} updateProject={updateProject} t={t} isReadOnly={isReadOnly} />}
+        {activeTab === 'team' && <ProjectTeam project={project} updateProject={updateProject} t={t} isReadOnly={isReadOnly} />}
+      </div>
+    </div>
+  );
+}
+
+function DetailTab({ label, icon, isActive, onClick }) {
+  return (
+    <button 
+      onClick={onClick}
+      className={`flex flex-col items-center justify-center py-2 text-[11px] font-medium rounded-lg transition-all ${
+        isActive ? 'bg-white text-indigo-700 shadow-sm' : 'text-indigo-100 hover:text-white hover:bg-white/10'
+      }`}
+    >
+      {icon}
+      <span className="mt-1">{label}</span>
+    </button>
+  );
+}
+
+function ProjectNotes({ project, updateProject, t, isReadOnly, showToast }) {
+  const [newNote, setNewNote] = useState('');
+  const [imagePreview, setImagePreview] = useState(null);
+  const [filePreview, setFilePreview] = useState(null);
+  const [linkInput, setLinkInput] = useState('');
+  const [showLinkField, setShowLinkField] = useState(false);
+  
+  const [editingId, setEditingId] = useState(null);
+  const [editText, setEditText] = useState('');
+  const [editLink, setEditLink] = useState('');
+  const [editImage, setEditImage] = useState(null);
+
+  const fileInputRef = useRef(null);
+  const docInputRef = useRef(null);
+  const editFileInputRef = useRef(null);
+  
+  const handleImageChange = (e, isEdit = false) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 2 * 1024 * 1024) { 
+        showToast(t('maxSizeWarning'));
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        if (isEdit) setEditImage(reader.result);
+        else setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleDocChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 500 * 1024) { // Localstorage dolmaması için 500KB kısıtlaması (Demo amaçlı)
+        showToast(t('fileLimit'));
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFilePreview({
+          name: file.name,
+          type: file.type,
+          data: reader.result
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const addNote = () => {
+    if (!newNote.trim() && !imagePreview && !linkInput.trim() && !filePreview) return;
+    
+    const updated = {
+      ...project,
+      notes: [
+        { 
+          id: Date.now(), 
+          text: newNote, 
+          image: imagePreview,
+          file: filePreview,
+          link: linkInput.trim() || null,
+          date: new Date().toLocaleDateString('tr-TR') 
+        }, 
+        ...(project.notes || [])
+      ]
+    };
+    
+    updateProject(updated);
+    setNewNote('');
+    setImagePreview(null);
+    setFilePreview(null);
+    setLinkInput('');
+    setShowLinkField(false);
+  };
+
+  const deleteNote = (id) => {
+    const updated = { ...project, notes: project.notes.filter(n => n.id !== id) };
+    updateProject(updated);
+  };
+
+  const startEdit = (note) => {
+    if(isReadOnly) return;
+    setEditingId(note.id);
+    setEditText(note.text);
+    setEditLink(note.link || '');
+    setEditImage(note.image || null);
+  };
+
+  const saveEdit = (id) => {
+    const updatedNotes = project.notes.map(n => {
+      if (n.id === id) {
+        return { ...n, text: editText, link: editLink.trim() || null, image: editImage };
+      }
+      return n;
+    });
+    updateProject({ ...project, notes: updatedNotes });
+    setEditingId(null);
+  };
+
+  return (
+    <div className="space-y-4">
+      {/* Yeni Not Formu - Sadece Aktif Projelerde Gösterilir */}
+      {!isReadOnly && (
+        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+          <textarea 
+            placeholder={t('writeNote')} 
+            className="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-0 outline-none resize-none h-20"
+            value={newNote}
+            onChange={(e) => setNewNote(e.target.value)}
+          />
+          
+          <div className="flex flex-wrap gap-2 mt-2">
+            {imagePreview && (
+              <div className="relative inline-block">
+                <img src={imagePreview} alt="Seçilen" className="h-20 w-auto rounded-lg object-cover border border-slate-200" />
+                <button onClick={() => setImagePreview(null)} className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 shadow"><X size={12}/></button>
+              </div>
+            )}
+            
+            {filePreview && (
+              <div className="relative flex items-center bg-indigo-50 border border-indigo-100 p-2 rounded-lg pr-8">
+                <FileText size={20} className="text-indigo-500 mr-2" />
+                <span className="text-xs font-bold text-indigo-800 truncate max-w-[120px]">{filePreview.name}</span>
+                <button onClick={() => setFilePreview(null)} className="absolute top-1/2 -translate-y-1/2 right-2 text-indigo-400 hover:text-red-500"><X size={16}/></button>
+              </div>
+            )}
+          </div>
+
+          {showLinkField && (
+            <div className="mt-2 flex items-center bg-slate-50 p-2 rounded-lg border border-slate-200">
+              <LinkIcon size={16} className="text-slate-400 mr-2" />
+              <input type="url" placeholder="https://..." className="w-full bg-transparent border-none text-sm outline-none text-slate-700" value={linkInput} onChange={(e) => setLinkInput(e.target.value)} />
+              <button onClick={() => {setShowLinkField(false); setLinkInput('');}} className="text-slate-400 hover:text-red-500 ml-2"><X size={16}/></button>
+            </div>
+          )}
+
+          <div className="flex justify-between items-center mt-2 border-t border-slate-100 pt-3">
+            <div className="flex space-x-1">
+              <input type="file" accept="image/*" className="hidden" ref={fileInputRef} onChange={(e) => handleImageChange(e, false)} />
+              <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.skp,.dwg" className="hidden" ref={docInputRef} onChange={handleDocChange} />
+              
+              <button onClick={() => fileInputRef.current.click()} className="flex items-center text-slate-500 hover:text-indigo-600 text-xs font-medium px-2 py-1.5 rounded bg-slate-50 transition-colors">
+                <ImageIcon size={14} className="mr-1" /> Görsel
+              </button>
+              <button onClick={() => docInputRef.current.click()} className="flex items-center text-slate-500 hover:text-indigo-600 text-xs font-medium px-2 py-1.5 rounded bg-slate-50 transition-colors">
+                <FileText size={14} className="mr-1" /> {t('attachFile')}
+              </button>
+              <button onClick={() => setShowLinkField(true)} className="flex items-center text-slate-500 hover:text-indigo-600 text-xs font-medium px-2 py-1.5 rounded bg-slate-50 transition-colors">
+                <LinkIcon size={14} className="mr-1" /> Link
+              </button>
+            </div>
+            <button onClick={addNote} className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-indigo-700">{t('addNote')}</button>
+          </div>
+        </div>
+      )}
+
+      {/* Kaydedilmiş Notlar Listesi */}
+      <div className="space-y-3">
+        {project.notes?.map(note => (
+          <div key={note.id} className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-col group relative overflow-hidden">
+            <div className="flex justify-between items-start mb-2">
+              <span className="text-[10px] text-slate-400 font-medium">{note.date}</span>
+              {!isReadOnly && (
+                <div className="flex space-x-1">
+                  <button onClick={() => startEdit(note)} className="p-1 text-slate-300 hover:text-indigo-600"><Edit2 size={14}/></button>
+                  <button onClick={() => deleteNote(note.id)} className="p-1 text-slate-300 hover:text-red-500"><Trash2 size={14} /></button>
+                </div>
+              )}
+            </div>
+
+            {editingId === note.id ? (
+              <div className="space-y-3">
+                <textarea className="w-full p-2 border border-slate-200 rounded-xl text-sm" value={editText} onChange={e => setEditText(e.target.value)} />
+                {editImage && (
+                  <div className="relative inline-block">
+                    <img src={editImage} alt="Edit" className="h-16 rounded" />
+                    <button onClick={() => setEditImage(null)} className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full p-0.5"><X size={10}/></button>
+                  </div>
+                )}
+                <div className="flex space-x-2">
+                  <input type="file" accept="image/*" className="hidden" ref={editFileInputRef} onChange={(e) => handleImageChange(e, true)} />
+                  <button onClick={() => editFileInputRef.current.click()} className="text-xs bg-slate-100 px-2 py-1 rounded"><ImageIcon size={12} className="inline mr-1" />Görsel Değiştir</button>
+                </div>
+                <input type="url" placeholder="Link" className="w-full p-2 border border-slate-200 rounded-xl text-sm" value={editLink} onChange={e => setEditLink(e.target.value)} />
+                <div className="flex justify-end space-x-2">
+                  <button onClick={() => setEditingId(null)} className="text-xs bg-slate-100 px-3 py-1.5 rounded">{t('cancel')}</button>
+                  <button onClick={() => saveEdit(note.id)} className="text-xs bg-indigo-600 text-white px-3 py-1.5 rounded">{t('updateNote')}</button>
+                </div>
+              </div>
+            ) : (
+              <>
+                {note.image && (
+                  <div className="mb-3">
+                    <img src={note.image} alt="Not Görseli" className="max-w-full h-auto rounded-lg border border-slate-200 max-h-48 object-cover" />
+                  </div>
+                )}
+
+                {note.text && <p className="text-slate-700 text-sm whitespace-pre-wrap leading-relaxed mb-2">{note.text}</p>}
+
+                {/* Yüklenen Dosyanın Görünümü */}
+                {note.file && (
+                  <a href={note.file.data} download={note.file.name} className="mt-2 flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-200 hover:bg-slate-100 transition-colors group">
+                    <div className="flex items-center overflow-hidden">
+                      <div className="bg-indigo-100 p-2 rounded-lg mr-3 flex-shrink-0 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        <FileText size={20} />
+                      </div>
+                      <div className="overflow-hidden">
+                        <p className="text-sm font-bold text-slate-700 truncate">{note.file.name}</p>
+                        <p className="text-[10px] text-slate-500">İndirmek için tıkla</p>
+                      </div>
+                    </div>
+                    <Download size={16} className="text-slate-400 group-hover:text-indigo-600 flex-shrink-0 ml-2" />
+                  </a>
+                )}
+
+                {note.link && (
+                  <a href={note.link} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center text-indigo-600 bg-indigo-50 px-3 py-2 rounded-lg text-xs font-medium hover:bg-indigo-100 transition-colors truncate">
+                    <LinkIcon size={14} className="mr-2 flex-shrink-0" />
+                    <span className="truncate">{note.link}</span>
+                  </a>
+                )}
+              </>
+            )}
+          </div>
+        ))}
+        {(!project.notes || project.notes.length === 0) && (
+          <div className="text-center py-10 text-slate-400">
+            <StickyNote size={32} className="mx-auto mb-2 opacity-50" />
+            <p className="text-sm">{t('noNotes')}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ProjectCalendar({ project, updateProject, t, isReadOnly }) {
+  const [showForm, setShowForm] = useState(false);
+  const [editingTaskId, setEditingTaskId] = useState(null);
+  
+  const [newTask, setNewTask] = useState({
+    title: '', date: new Date().toISOString().split('T')[0], startTime: '09:00', endTime: '10:00', reminder: false
+  });
+
+  const handleEditTask = (task) => {
+    if(isReadOnly) return;
+    setNewTask({ title: task.title, date: task.date, startTime: task.startTime, endTime: task.endTime, reminder: task.reminder });
+    setEditingTaskId(task.id);
+    setShowForm(true);
+  };
+
+  const handleToggleReminder = async () => {
+    if (!newTask.reminder) {
+      if ('Notification' in window && Notification.permission !== 'denied') {
+        const permission = await Notification.requestPermission();
+        if(permission === 'granted') setNewTask({...newTask, reminder: true});
+      }
+    } else {
+      setNewTask({...newTask, reminder: false});
+    }
+  };
+
+  const addTask = (e) => {
+    e.preventDefault();
+    if (!newTask.title.trim()) return;
+    let updatedTasks = editingTaskId 
+      ? project.tasks.map(t => t.id === editingTaskId ? { ...t, ...newTask } : t)
+      : [...(project.tasks || []), { id: Date.now(), ...newTask, isDone: false }];
+    
+    updatedTasks.sort((a, b) => new Date(`${a.date}T${a.startTime}`) - new Date(`${b.date}T${b.startTime}`));
+    updateProject({ ...project, tasks: updatedTasks });
+    setShowForm(false);
+    setEditingTaskId(null);
+    setNewTask({ title: '', date: new Date().toISOString().split('T')[0], startTime: '09:00', endTime: '10:00', reminder: false });
+  };
+
+  const toggleTaskStatus = (id) => {
+    if(isReadOnly) return;
+    updateProject({ ...project, tasks: project.tasks.map(t => t.id === id ? { ...t, isDone: !t.isDone } : t) });
+  };
+
+  return (
+    <div className="space-y-4">
+      <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+        <div>
+          <h3 className="font-bold text-slate-800 flex items-center"><Calendar className="mr-2 text-indigo-500" size={18}/> {t('workCalendar')}</h3>
+          <p className="text-xs text-slate-500 mt-1">{t('fieldAndOffice')}</p>
+        </div>
+        {!isReadOnly && (
+          <button onClick={() => { setShowForm(!showForm); setEditingTaskId(null); }} className="bg-indigo-50 text-indigo-600 p-2 rounded-lg font-bold hover:bg-indigo-100 transition-colors">
+            {showForm ? <X size={20}/> : <Plus size={20}/>}
+          </button>
+        )}
+      </div>
+
+      {showForm && !isReadOnly && (
+        <form onSubmit={addTask} className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm space-y-4 animate-in slide-in-from-top-2">
+          <div><label className="text-xs font-medium text-slate-500 mb-1 block">{t('taskTitle')}</label><input required type="text" className="w-full p-2 border border-slate-200 rounded-lg text-sm outline-none" value={newTask.title} onChange={e => setNewTask({...newTask, title: e.target.value})} /></div>
+          <div><label className="text-xs font-medium text-slate-500 mb-1 block">{t('date')}</label><input required type="date" className="w-full p-2 border border-slate-200 rounded-lg text-sm outline-none" value={newTask.date} onChange={e => setNewTask({...newTask, date: e.target.value})} /></div>
+          <div className="flex space-x-3">
+            <div className="flex-1"><label className="text-xs font-medium text-slate-500 mb-1 flex items-center"><Clock size={12} className="mr-1"/> {t('start')}</label><input required type="time" className="w-full p-2 border border-slate-200 rounded-lg text-sm outline-none" value={newTask.startTime} onChange={e => setNewTask({...newTask, startTime: e.target.value})} /></div>
+            <div className="flex-1"><label className="text-xs font-medium text-slate-500 mb-1 flex items-center"><Clock size={12} className="mr-1"/> {t('end')}</label><input required type="time" className="w-full p-2 border border-slate-200 rounded-lg text-sm outline-none" value={newTask.endTime} onChange={e => setNewTask({...newTask, endTime: e.target.value})} /></div>
+          </div>
+          <button type="button" onClick={handleToggleReminder} className={`w-full flex justify-center items-center py-2 rounded-lg text-xs font-medium border transition-colors ${newTask.reminder ? 'bg-amber-50 text-amber-600 border-amber-200' : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100'}`}>
+            {newTask.reminder ? <BellRing size={14} className="mr-2 animate-pulse"/> : <Bell size={14} className="mr-2"/>}
+            {newTask.reminder ? t('reminderActive') : t('addReminder')}
+          </button>
+          <button type="submit" className="w-full bg-indigo-600 text-white rounded-lg py-3 text-sm font-bold shadow-sm">{editingTaskId ? t('updateTask') : t('addToCalendar')}</button>
+        </form>
+      )}
+
+      <div className="space-y-3">
+        {project.tasks?.map(task => {
+          const formattedDate = new Date(task.date).toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' });
+          return (
+            <div key={task.id} className={`bg-white p-3 rounded-xl border flex items-center shadow-sm transition-all ${task.isDone ? 'border-slate-200 bg-slate-50/50 opacity-60' : 'border-indigo-100 border-l-4 border-l-indigo-500'}`}>
+              <div className="flex flex-col items-center justify-center bg-slate-50 p-2 rounded-lg w-14 mr-3 border border-slate-100">
+                <span className="text-[10px] text-slate-500 font-bold uppercase">{formattedDate.split(' ')[1]}</span>
+                <span className="text-lg font-black text-slate-800 leading-none">{formattedDate.split(' ')[0]}</span>
+              </div>
+              <div className="flex-1 cursor-pointer" onClick={() => toggleTaskStatus(task.id)}>
+                <h4 className={`text-sm font-bold ${task.isDone ? 'text-slate-500 line-through' : 'text-slate-800'}`}>{task.title}</h4>
+                <div className="flex items-center mt-1 space-x-3 text-xs text-slate-500 font-medium">
+                  <span className="flex items-center"><Clock size={12} className="mr-1"/> {task.startTime} - {task.endTime}</span>
+                  {task.reminder && <span className="text-amber-500 flex items-center"><Bell size={12} className="mr-1"/></span>}
+                </div>
+              </div>
+              {!isReadOnly && (
+                <div className="flex items-center space-x-1 ml-2">
+                  <button onClick={() => toggleTaskStatus(task.id)} className={`p-1 rounded-full ${task.isDone ? 'text-green-500 bg-green-50' : 'text-slate-300 hover:text-indigo-500'}`}><CheckCircle size={18}/></button>
+                  <button onClick={() => handleEditTask(task)} className="p-1 text-slate-300 hover:text-indigo-600"><Edit2 size={16}/></button>
+                  <button onClick={() => updateProject({ ...project, tasks: project.tasks.filter(t => t.id !== task.id) })} className="p-1 text-slate-300 hover:text-red-500"><Trash2 size={16}/></button>
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {(!project.tasks || project.tasks.length === 0) && !showForm && (
+          <div className="text-center py-10 text-slate-400">
+            <Calendar size={32} className="mx-auto mb-2 opacity-50" />
+            <p className="text-sm">{t('noTasks')}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ProjectMaterials({ project, updateProject, t, isReadOnly }) {
+  const [showAdd, setShowAdd] = useState(false);
+  const [editingMatId, setEditingMatId] = useState(null);
+  const [newMat, setNewMat] = useState({ type: 'Zemin', name: '', brand: '', area: '' });
+
+  const addMaterial = (e) => {
+    e.preventDefault();
+    const updatedMaterials = editingMatId 
+      ? project.materials.map(m => m.id === editingMatId ? { ...m, ...newMat } : m)
+      : [{ id: Date.now(), ...newMat }, ...(project.materials || [])];
+    updateProject({ ...project, materials: updatedMaterials });
+    setShowAdd(false);
+    setEditingMatId(null);
+    setNewMat({ type: 'Zemin', name: '', brand: '', area: '' });
+  };
+
+  return (
+    <div className="space-y-4">
+      <div className="flex justify-between items-center mb-2">
+        <h3 className="font-semibold text-slate-700 text-sm">{t('selectedMaterials')}</h3>
+        {!isReadOnly && (
+          <button onClick={() => { setShowAdd(!showAdd); setEditingMatId(null); }} className="text-indigo-600 text-sm font-bold flex items-center">
+            {showAdd ? <X size={16} className="mr-1"/> : <Plus size={16} className="mr-1"/>}
+            {showAdd ? t('cancelBtn') : t('addNew')}
+          </button>
+        )}
+      </div>
+
+      {showAdd && !isReadOnly && (
+        <form onSubmit={addMaterial} className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm space-y-3 mb-4 animate-in fade-in">
+          <select value={newMat.type} onChange={e => setNewMat({...newMat, type: e.target.value})} className="w-full p-2 border border-slate-200 rounded-lg text-sm outline-none bg-white">
+            <option>Zemin</option><option>Duvar</option><option>Mobilya</option><option>Aydınlatma</option><option>Aksesuar</option>
+          </select>
+          <input required type="text" placeholder={t('materialName')} className="w-full p-2 border border-slate-200 rounded-lg text-sm outline-none" value={newMat.name} onChange={e => setNewMat({...newMat, name: e.target.value})} />
+          <div className="flex space-x-2">
+            <input type="text" placeholder={t('brand')} className="w-1/2 p-2 border border-slate-200 rounded-lg text-sm outline-none" value={newMat.brand} onChange={e => setNewMat({...newMat, brand: e.target.value})} />
+            <input type="text" placeholder={t('area')} className="w-1/2 p-2 border border-slate-200 rounded-lg text-sm outline-none" value={newMat.area} onChange={e => setNewMat({...newMat, area: e.target.value})} />
+          </div>
+          <button type="submit" className="w-full bg-slate-900 text-white rounded-lg py-2 text-sm font-bold hover:bg-slate-800">{editingMatId ? t('updateMaterial') : t('addToBoard')}</button>
+        </form>
+      )}
+
+      <div className="grid grid-cols-1 gap-3">
+        {project.materials?.map(mat => (
+          <div key={mat.id} className="bg-white p-4 rounded-xl border-l-4 border-l-indigo-500 shadow-sm flex justify-between items-start">
+            <div className="flex-1">
+              <span className="text-[10px] bg-slate-100 text-slate-500 px-2 py-0.5 rounded font-bold uppercase">{mat.type}</span>
+              <h4 className="font-bold text-slate-800 mt-1">{mat.name}</h4>
+              <div className="flex text-xs text-slate-500 mt-2 space-x-3">
+                {mat.brand && <span><span className="font-medium text-slate-400">{t('brand')}:</span> {mat.brand}</span>}
+                {mat.area && <span><span className="font-medium text-slate-400">{t('area')}:</span> {mat.area}</span>}
+              </div>
+            </div>
+            {!isReadOnly && (
+              <div className="flex space-x-1">
+                <button onClick={() => { setNewMat({ type: mat.type, name: mat.name, brand: mat.brand || '', area: mat.area || '' }); setEditingMatId(mat.id); setShowAdd(true); }} className="text-slate-300 hover:text-indigo-600 p-1"><Edit2 size={14}/></button>
+                <button onClick={() => updateProject({ ...project, materials: project.materials.filter(m => m.id !== mat.id) })} className="text-slate-300 hover:text-red-500 p-1"><Trash2 size={16}/></button>
+              </div>
+            )}
+          </div>
+        ))}
+        {(!project.materials || project.materials.length === 0) && !showAdd && (
+          <div className="text-center py-10 text-slate-400">
+            <Palette size={32} className="mx-auto mb-2 opacity-50" />
+            <p className="text-sm">{t('noMaterials')}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ProjectTeam({ project, updateProject, t, isReadOnly }) {
+  const [email, setEmail] = useState('');
+
+  const inviteUser = (e) => {
+    e.preventDefault();
+    if (!email.trim() || !email.includes('@')) return;
+    updateProject({ ...project, collaborators: [...(project.collaborators || []), { id: Date.now(), email, role: 'İzleyici' }] });
+    setEmail('');
+  };
+
+  const changeRole = (userId, newRole) => {
+    updateProject({ ...project, collaborators: project.collaborators.map(c => c.id === userId ? { ...c, role: newRole } : c) });
+  };
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-indigo-50 border border-indigo-100 p-4 rounded-xl flex items-start space-x-3">
+        <Share2 size={24} className="text-indigo-600 mt-1 flex-shrink-0" />
+        <div>
+          <h3 className="text-sm font-bold text-indigo-900 mb-1">{t('shareProject')}</h3>
+          <p className="text-xs text-indigo-700 leading-relaxed">{t('shareDesc')}</p>
+        </div>
+      </div>
+
+      {!isReadOnly && (
+        <form onSubmit={inviteUser} className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3">
+          <h4 className="text-sm font-bold text-slate-700">{t('sendInvite')}</h4>
+          <div className="flex space-x-2">
+            <input type="email" placeholder={t('emailPlaceholder')} required className="flex-1 p-2 border border-slate-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50" value={email} onChange={e => setEmail(e.target.value)} />
+            <button type="submit" className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-800">{t('inviteBtn')}</button>
+          </div>
+        </form>
+      )}
+
+      <div>
+        <h4 className="text-sm font-bold text-slate-700 mb-3">{t('accessList')}</h4>
+        <div className="space-y-2">
+          {/* Proje Sahibi (Yönetici) */}
+          <div className="bg-white p-3 rounded-lg border border-slate-100 flex items-center justify-between shadow-sm">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs">SEN</div>
+              <div>
+                <p className="text-sm font-medium text-slate-800">{t('you')}</p>
+                <p className="text-[10px] text-slate-500 uppercase">{t('projectManager')}</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Davet Edilenler (Rol Değiştirme ile) */}
+          {project.collaborators?.map(user => (
+            <div key={user.id} className="bg-white p-3 rounded-lg border border-slate-100 flex items-center justify-between shadow-sm">
+              <div className="flex items-center space-x-3 flex-1 overflow-hidden pr-2">
+                <div className="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-xs flex-shrink-0">
+                  {user.email.charAt(0).toUpperCase()}
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-slate-800 truncate">{user.email}</p>
+                  {isReadOnly ? (
+                    <p className="text-[10px] text-slate-500 uppercase">{user.role}</p>
+                  ) : (
+                    <select
+                      value={user.role}
+                      onChange={(e) => changeRole(user.id, e.target.value)}
+                      className="text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded px-1 py-0.5 mt-0.5 outline-none cursor-pointer"
+                    >
+                      <option value="Editör">{t('roleEditor')}</option>
+                      <option value="İzleyici">{t('roleViewer')}</option>
+                    </select>
+                  )}
+                </div>
+              </div>
+              {!isReadOnly && (
+                <button onClick={() => updateProject({ ...project, collaborators: project.collaborators.filter(c => c.id !== user.id) })} className="text-slate-400 hover:text-red-500 text-xs font-medium px-2 py-1 bg-slate-50 rounded">{t('remove')}</button>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Tools({ t }) {
+  const [width, setWidth] = useState('');
+  const [length, setLength] = useState('');
+  const area = (parseFloat(width || 0) * parseFloat(length || 0)).toFixed(2);
+
+  const [matArea, setMatArea] = useState('');
+  const [wasteOption, setWasteOption] = useState('10');
+  const [customWaste, setCustomWaste] = useState('');
+  const [packageSize, setPackageSize] = useState('');
+
+  const actualWaste = wasteOption === 'custom' ? parseFloat(customWaste || 0) : parseFloat(wasteOption || 0);
+  const grossArea = parseFloat(matArea || 0) * (1 + (actualWaste / 100));
+  const requiredPackages = packageSize > 0 ? Math.ceil(grossArea / parseFloat(packageSize)) : 0;
+
+  const [floorHeight, setFloorHeight] = useState('');
+  const heightVal = parseFloat(floorHeight || 0);
+  const riserCount = heightVal > 0 ? Math.round(heightVal / 17) : 0; 
+  const stepCount = riserCount > 0 ? riserCount - 1 : 0; 
+  const actualRiserHeight = riserCount > 0 ? (heightVal / riserCount).toFixed(2) : 0; 
+
+  return (
+    <div className="p-6 h-full animate-in fade-in space-y-6">
+      <h2 className="text-xl font-bold text-slate-800 flex items-center"><Calculator className="mr-2"/> {t('practicalTools')}</h2>
+      
+      <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+        <h3 className="font-bold text-slate-700 mb-4 flex items-center"><Ruler size={18} className="mr-2 text-indigo-500"/> {t('stairCalc')}</h3>
+        <div className="space-y-4">
+          <div>
+            <label className="text-xs text-slate-500 font-medium mb-1 block">{t('floorHeight')}</label>
+            <input type="number" value={floorHeight} onChange={e=>setFloorHeight(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-lg focus:outline-none focus:border-indigo-500 font-mono" placeholder="Örn: 285" />
+          </div>
+          <div className="bg-slate-900 rounded-xl p-4 text-white grid grid-cols-3 gap-2 divide-x divide-slate-700">
+            <div className="text-center px-1"><span className="text-[10px] text-slate-400 block mb-1">{t('riserCount')}</span><span className="text-xl font-bold">{riserCount > 0 ? riserCount : '0'}</span></div>
+            <div className="text-center px-1"><span className="text-[10px] text-slate-400 block mb-1">{t('stepCount')}</span><span className="text-xl font-bold text-amber-400">{stepCount > 0 ? stepCount : '0'}</span></div>
+            <div className="text-center px-1"><span className="text-[10px] text-slate-400 block mb-1">{t('riserHeight')}</span><span className="text-xl font-bold text-indigo-400">{actualRiserHeight > 0 ? actualRiserHeight : '0'}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+        <h3 className="font-bold text-slate-700 mb-4 flex items-center"><Package size={18} className="mr-2 text-indigo-500"/> {t('pkgCalculator')}</h3>
+        <div className="space-y-4">
+          <div><label className="text-xs text-slate-500 font-medium mb-1 block">{t('netArea')}</label><input type="number" value={matArea} onChange={e=>setMatArea(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-lg focus:outline-none focus:border-indigo-500 font-mono" placeholder="Örn: 45.5" /></div>
+          <div>
+            <label className="text-xs text-slate-500 font-medium mb-2 block">{t('wasteRatio')}</label>
+            <div className="flex space-x-2">
+              {['5', '10', '15'].map(opt => (<button key={opt} onClick={() => setWasteOption(opt)} className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors border ${wasteOption === opt ? 'bg-indigo-100 text-indigo-700 border-indigo-200' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}>%{opt}</button>))}
+              <button onClick={() => setWasteOption('custom')} className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors border ${wasteOption === 'custom' ? 'bg-indigo-100 text-indigo-700 border-indigo-200' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}>Özel</button>
+            </div>
+            {wasteOption === 'custom' && (<div className="mt-3 flex items-center space-x-2 bg-slate-50 p-2 rounded-lg border border-slate-200"><span className="text-sm text-slate-600 font-medium">{t('customWaste')}</span><input type="number" value={customWaste} onChange={e=>setCustomWaste(e.target.value)} className="w-full bg-white border border-slate-300 rounded p-1 text-center outline-none focus:border-indigo-500" placeholder="0" /></div>)}
+          </div>
+          <div><label className="text-xs text-slate-500 font-medium mb-1 block">{t('pkgContent')}</label><input type="number" step="0.01" value={packageSize} onChange={e=>setPackageSize(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-lg focus:outline-none focus:border-indigo-500 font-mono" placeholder="Örn: 1.44" /></div>
+          <div className="mt-4 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl p-5 text-white shadow-lg">
+            <div className="flex justify-between items-center mb-3"><span className="text-sm text-indigo-100 font-medium">{t('grossRequired')}</span><span className="font-bold">{grossArea > 0 ? grossArea.toFixed(2) : '0'} m²</span></div>
+            <div className="flex justify-between items-center border-t border-indigo-400/50 pt-3"><span className="text-base font-bold">{t('totalToBuy')}</span><div className="bg-white text-indigo-700 px-4 py-2 rounded-lg shadow-sm flex items-end"><span className="text-3xl font-black leading-none">{requiredPackages}</span><span className="ml-1 text-sm font-bold mb-0.5">{t('packages')}</span></div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 mb-6">
+        <h3 className="font-bold text-slate-700 mb-4 flex items-center"><Ruler size={18} className="mr-2 text-indigo-500"/> {t('quickArea')}</h3>
+        <div className="flex items-center space-x-4">
+          <div><label className="text-xs text-slate-500 font-medium">{t('width')}</label><input type="number" step="0.01" value={width} onChange={e=>setWidth(e.target.value)} className="w-full bg-slate-50 border-b-2 border-slate-200 p-2 text-center text-lg focus:outline-none focus:border-indigo-500 font-mono" placeholder="0.00" /></div><span className="text-slate-400 mt-4 text-xl">x</span>
+          <div><label className="text-xs text-slate-500 font-medium">{t('length')}</label><input type="number" step="0.01" value={length} onChange={e=>setLength(e.target.value)} className="w-full bg-slate-50 border-b-2 border-slate-200 p-2 text-center text-lg focus:outline-none focus:border-indigo-500 font-mono" placeholder="0.00" /></div>
+        </div>
+        <div className="mt-6 bg-slate-100 rounded-xl p-4 flex justify-between items-center text-slate-700">
+          <span className="text-sm font-medium">{t('totalArea')}</span>
+          <div className="flex items-end"><span className="text-3xl font-bold">{area > 0 ? area : "0.00"}</span><span className="ml-1 text-sm text-slate-500 mb-1">m²</span></div>
+        </div>
+      </div>
+    </div>
+  );
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 
