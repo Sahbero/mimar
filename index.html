@@ -1444,3 +1444,42 @@ root.render(<App />);
     </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArchiMate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { margin: 0; background-color: #f8fafc; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Lucide ikonlarını kolay kullanmak için referans
+        const { Home, FolderOpen, Calculator, Plus, Search, ChevronLeft, Edit2, Trash2, X, Palette, StickyNote, Link: LinkIcon, Ruler, Users, Share2, Package, Image: ImageIcon, Calendar, Clock, Bell, BellRing, CheckCircle, Archive, FileText, Download, CheckCircle2 } = lucide;
+
+        // --- KODUNUZ BURAYA GELECEK ---
+        // Not: Tüm fonksiyonel React kodunuzu, import satırlarını kaldırarak 
+        // ve 'export default' yerine doğrudan tanımlayarak buraya yapıştırın.
+        
+        // Örnek:
+        function App() {
+            // ... tüm logic ...
+            return <div>ArchiMate Çalışıyor!</div>;
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
+
